@@ -1,0 +1,30 @@
+version: "3"
+services:
+
+   minio_model_repo:
+     container_name: minio_model_repo
+     image: minio/minio
+     network_mode: host
+     volumes:
+       - /data/minio/data:/data
+     logging:
+       driver: syslog
+       options:
+         syslog-address: "tcp://localhost:514"
+         tag: "minio"
+     restart: always
+     environment:
+       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+       
+   envoy:
+     container_name: envoy
+     image: envoyproxy/envoy-alpine:v1.11.0
+     network_mode: host
+     volumes:
+       - /opt/envoy:/etc/envoy 
+     logging:
+       driver: syslog
+       options:
+         syslog-address: "tcp://localhost:514"
+         tag: "envoy"

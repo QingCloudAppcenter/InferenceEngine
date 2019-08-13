@@ -1,0 +1,8 @@
+/data/minio/logs/minio.log {
+  daily
+  maxsize 10M
+  rotate 7 
+  missingok
+  notifempty
+  endscript
+}

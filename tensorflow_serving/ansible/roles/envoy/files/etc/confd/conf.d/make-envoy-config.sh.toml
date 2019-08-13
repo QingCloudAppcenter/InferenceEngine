@@ -1,0 +1,8 @@
+[template]
+src = "make-envoy-config.sh.tmpl"
+dest = "/opt/app/bin/make-envoy-config.sh"
+mode = "0755"
+keys = [
+  "/",
+]
+reload_cmd = "/opt/app/bin/make-envoy-config.sh"

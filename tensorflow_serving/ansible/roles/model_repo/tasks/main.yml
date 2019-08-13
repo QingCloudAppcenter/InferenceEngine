@@ -1,0 +1,49 @@
+---
+- name: set up confd templates
+  include_role:
+    name: utils
+    tasks_from: setup-confd
+  vars:
+    parentRole: model_repo
+
+- name: set up docker
+  include_role:
+    name: utils
+    tasks_from: setup-docker
+
+- name: install tools
+  apt:
+    name: ['openjdk-8-jdk', 'unzip', 'python-pip', 'python3-pip', 'python-setuptools', 'python-dateutil', 's3cmd']
+    state: present
+    update_cache: no
+
+- name: install docker compose
+  include_role:
+    name: utils
+    tasks_from: install-docker-compose
+  vars:
+    dockerComposeVersion: "1.24.1"
+
+- name: install jq
+  include_role:
+    name: utils
+    tasks_from: install-jq
+  vars:
+    jqVersion: "1.6"
+
+- name: pull minio docker image
+  docker_image:
+    name: minio/minio
+    source: pull
+
+- name: copy configuration files
+  include_role:
+    name: utils
+    tasks_from: copy-conf
+  vars:
+    parentRole: model_repo
+
+- name: install default models 
+  include_role:
+    name: utils
+    tasks_from: install-models

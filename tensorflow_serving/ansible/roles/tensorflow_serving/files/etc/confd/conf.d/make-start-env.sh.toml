@@ -1,0 +1,8 @@
+[template]
+src = "make-start-env.sh.tmpl"
+dest = "/opt/app/bin/make-start-env.sh"
+mode = "0755"
+keys = [
+  "/",
+]
+reload_cmd = "/opt/app/bin/make-start-env.sh"

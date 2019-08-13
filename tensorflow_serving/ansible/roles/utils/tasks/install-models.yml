@@ -1,0 +1,15 @@
+---
+- name: copy sample models
+  copy:
+    src: "{{ path }}"
+    dest: /opt/models
+    owner: root
+    group: root
+    mode: preserve
+    directory_mode: u=rwx,g=rx,o=
+  when: path is directory
+  loop:
+    - "{{ playbook_dir }}/files/tmp/models/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_mkl"
+    - "{{ playbook_dir }}/files/tmp/models/resnet"
+  loop_control:
+    loop_var: path

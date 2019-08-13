@@ -1,0 +1,8 @@
+/data/logs/tensorflow_serving.log {
+  daily
+  maxsize 50M
+  rotate 7 
+  missingok
+  notifempty
+  endscript
+}

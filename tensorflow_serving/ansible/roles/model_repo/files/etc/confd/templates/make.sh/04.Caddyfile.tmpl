@@ -1,0 +1,15 @@
+cat > /opt/app/conf/caddy/Caddyfile << CADDYFILE_EOF
+{{ $myIp }}:80 {
+  root /data/
+  gzip
+  browse /minio/logs
+  browse /minio/data
+  tls off
+
+  upload / {
+    yes_without_tls
+    to "/data/models_to_load"
+  }
+}
+CADDYFILE_EOF
+

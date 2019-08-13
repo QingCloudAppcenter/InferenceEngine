@@ -1,0 +1,111 @@
+{
+  "name": {{cluster.name}},
+  "description": {{cluster.description}},
+  "vxnet": {{cluster.vxnet}},
+  "multi_zone_policy": "round_robin",
+  "advanced_actions": [
+    "scale_horizontal",
+    "change_vxnet"
+  ],
+  "nodes": [{
+    "role": "tfserving",
+    "container": {
+      "type": "kvm",
+      "zone": "pek3",
+      "image": "img-u5pq5mr2"
+    },
+    "instance_class": {{cluster.tfserving.instance_class}},
+    "count": {{cluster.tfserving.count}},
+    "cpu_model": {{cluster.tfserving.cpu_model}},
+    "cpu": {{cluster.tfserving.cpu}},
+    "memory": {{cluster.tfserving.memory}},
+    "volume": {
+      "size": {{cluster.tfserving.volume_size}},
+      "mount_point": ["/data"],
+      "class": {{cluster.tfserving.volume_class}}
+    },
+    "vertical_scaling_policy": "sequential",
+    "services": {
+      "init": {
+        "cmd": "appctl init"
+      },
+      "start": {
+        "cmd": "appctl start"
+      },
+      "stop": {
+        "cmd": "appctl stop"
+      },
+      "restart": {
+        "cmd": "appctl restart"
+      }
+    },
+    "env": {
+      "model.name": {{env.tfserving.model.name}},
+      "model.folder.name": {{env.tfserving.model.folder.name}},
+      "model.http.port": {{env.tfserving.http.port}}
+    },
+    "health_check": {
+      "enable": true,
+      "interval_sec": 60,
+      "timeout_sec": 10,
+      "action_timeout_sec": 30,
+      "healthy_threshold": 2,
+      "unhealthy_threshold": 2,
+      "check_cmd": "appctl check",
+      "action_cmd": "appctl revive"
+    }
+  }, {
+    "role": "model_repo",
+    "container": {
+      "type": "kvm",
+      "zone": "pek3",
+      "image": "img-zgbub5cx"
+    },
+    "instance_class": {{cluster.model_repo.instance_class}},
+    "count": {{cluster.model_repo.count}},
+    "cpu": {{cluster.model_repo.cpu}},
+    "memory": {{cluster.model_repo.memory}},
+    "volume": {
+      "size": {{cluster.model_repo.volume_size}},
+      "mount_point": ["/data"],
+      "class": {{cluster.model_repo.volume_class}}
+    },
+    "vertical_scaling_policy": "sequential",
+    "services": {
+      "init": {
+        "cmd": "appctl init"
+      },
+      "start": {
+        "cmd": "appctl start"
+      },
+      "stop": {
+        "cmd": "appctl stop"
+      },
+      "restart": {
+        "cmd": "appctl restart"
+      }
+    },
+    "user_access": true,
+    "health_check": {
+      "enable": true,
+      "interval_sec": 60,
+      "timeout_sec": 10,
+      "action_timeout_sec": 30,
+      "healthy_threshold": 2,
+      "unhealthy_threshold": 2,
+      "check_cmd": "appctl check",
+      "action_cmd": "appctl revive"
+    }
+  }],
+  "env": {
+    "minio.access.key": {{env.global.minio.access.key}},
+    "minio.secret.key": {{env.global.minio.secret.key}}
+  },
+  "endpoints": {
+    "reserved_ips": {
+      "tfserving_vip": {
+        "value": ""
+      }
+    }
+  }
+}

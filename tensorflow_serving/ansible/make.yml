@@ -1,0 +1,34 @@
+---
+- name: common setup
+  hosts: all
+  strategy: free
+  roles:
+  - common
+
+- name: setup tensorflow serving
+  hosts: tensorflow_serving
+  strategy: free
+  tasks:
+  - include_role:
+      name: "{{ svc_name }}"
+    when: "'tensorflow_serving' in group_names"
+    loop:
+    - caddy
+    - tensorflow_serving
+    - envoy
+    loop_control:
+      loop_var: svc_name
+
+- name: setup model_repo
+  hosts: model_repo
+  strategy: free
+  tasks:
+  - include_role:
+      name: "{{ svc_name }}"
+    when: "'model_repo' in group_names"
+    loop:
+    - caddy
+    - model_repo
+    - envoy
+    loop_control:
+      loop_var: svc_name

@@ -1,0 +1,74 @@
+---
+#- name: Uninstall old docker packages 
+#  apt:
+#    name: "{{ packages }}"
+#    state: absent
+#  vars:
+#    packages:
+#    - docker
+#    - docker-engine
+#    - docker.io
+#    - containerd
+#    - runc
+
+- name: add universe repository for bionic
+  apt_repository:
+    repo: deb http://archive.ubuntu.com/ubuntu bionic universe
+    state: present
+  when: ansible_distribution_release == 'bionic'
+
+- name: Run "apt-get update"
+  apt:
+    update_cache: yes
+
+- name: Install packages to allow apt to use a repository over HTTPS
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - python3-pip
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- name: Add an Apt signing key, uses whichever key is at the URL
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- apt: update_cache=yes
+
+- name: Add Docker’s official GPG key
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+
+- name: Run "apt-get update"
+  apt:
+    update_cache: yes
+
+- name: Install stable docker packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+
+- name: Install docker sdk for python
+  pip:
+    name: docker
+
+- name: Remove docker network dridge
+  shell: ip link delete docker0 &>/dev/null; echo ""

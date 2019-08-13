@@ -1,0 +1,12 @@
+---
+- name: install app agent
+  include_role:
+    name: utils
+    tasks_from: install-app-agent
+
+- name: common setup
+  include_tasks: "{{ item }}.yml"
+  with_items:
+  - create-group
+  - disable-motd
+  - setup-conf

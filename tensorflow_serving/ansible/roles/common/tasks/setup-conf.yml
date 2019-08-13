@@ -1,0 +1,12 @@
+---
+- name: copy configuration files
+  include_role:
+    name: utils
+    tasks_from: copy-conf
+  vars:
+    parentRole: common
+
+- name: set version env
+  copy:
+    dest: /opt/app/bin/version.env
+    content: TF_SERVING_VERSION={{ tf_serving_version }}

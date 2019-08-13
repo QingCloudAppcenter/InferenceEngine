@@ -1,0 +1,19 @@
+---
+- name: pull envoy docker image
+  docker_image:
+    name: envoyproxy/envoy-alpine:v1.11.0
+    source: pull
+
+- name: copy configuration files
+  include_role:
+    name: utils
+    tasks_from: copy-conf
+  vars:
+    parentRole: envoy
+
+- name: set up confd templates
+  include_role:
+    name: utils
+    tasks_from: setup-confd
+  vars:
+    parentRole: envoy 

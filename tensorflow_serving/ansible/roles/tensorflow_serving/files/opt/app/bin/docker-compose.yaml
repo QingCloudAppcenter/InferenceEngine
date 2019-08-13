@@ -1,0 +1,33 @@
+version: "3"
+services:
+
+   tensorflow_serving:
+     container_name: tensorflow_serving
+     image: qingcloud/tensorflow-serving:1.13-mkl
+     network_mode: host
+     volumes:
+       - /data/models/${MODEL_FOLDER}:/models/${MODEL_NAME} 
+     logging:
+       driver: syslog
+       options:
+         syslog-address: "tcp://localhost:514"
+         tag: "tfserving"
+     restart: always
+     environment:
+       MODEL_NAME: ${MODEL_NAME}
+       OMP_NUM_THREADS: ${OMP_NUM_THREADS}
+       TENSORFLOW_INTER_OP_PARALLELISM: ${TENSORFLOW_INTER_OP_PARALLELISM}
+       TENSORFLOW_INTRA_OP_PARALLELISM: ${TENSORFLOW_INTRA_OP_PARALLELISM}
+
+   envoy:
+     container_name: envoy
+     image: envoyproxy/envoy-alpine:v1.11.0
+     network_mode: host
+     volumes:
+       - /opt/envoy:/etc/envoy 
+     logging:
+       driver: syslog
+       options:
+         syslog-address: "tcp://localhost:514"
+         tag: "envoy"
+     restart: always

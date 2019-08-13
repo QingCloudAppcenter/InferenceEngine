@@ -1,0 +1,31 @@
+---
+- name: Download app agent
+  get_url:
+    url: http://appcenter-docs.qingcloud.com/developer-guide/scripts/app-agent-linux-amd64.tar.gz 
+    dest: "{{ playbook_dir }}/files/tmp/app-agent-linux-amd64.tar.gz"
+    mode: '0755'
+  delegate_to: localhost
+
+- name: unzip app agent 
+  unarchive:
+    src: "{{ playbook_dir }}/files/tmp/app-agent-linux-amd64.tar.gz"
+    dest: "{{ playbook_dir }}/files/tmp/"
+  delegate_to: localhost
+
+- name: copy app agent
+  copy:
+    src: "{{ path }}"
+    dest: /opt/
+    owner: root
+    group: root
+    mode: preserve
+    directory_mode: u=rwx,g=rx,o=
+  when: path is directory
+  loop:
+    - "{{ playbook_dir }}/files/tmp/app-agent-linux-amd64"
+  loop_control:
+    loop_var: path
+
+- name: install app agent
+  shell: |
+    cd /opt/app-agent-linux-amd64/ && /opt/app-agent-linux-amd64/install.sh && rm -rf /opt/app-agent-linux-amd64

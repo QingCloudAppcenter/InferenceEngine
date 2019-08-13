@@ -1,0 +1,6 @@
+ansible/files/
+ansible/roles/tensorflow_serving/files/tmp/
+ansible/roles/model_repo/files/tmp/
+ansible/roles/envoy/files/tmp/
+*.zip
+*.gz

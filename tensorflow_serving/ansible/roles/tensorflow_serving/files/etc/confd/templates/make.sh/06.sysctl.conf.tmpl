@@ -1,0 +1,7 @@
+cat >> /etc/sysctl.conf << SYSCTL_CONF_EOF
+vm.max_map_count=262144
+vm.swappiness=1
+SYSCTL_CONF_EOF
+
+sysctl -p
+

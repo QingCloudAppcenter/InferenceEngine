@@ -1,0 +1,240 @@
+{
+  "type": "array",
+  "properties": [{
+    "key": "cluster",
+    "description": "InferenceEngine cluster properties",
+    "type": "array",
+    "properties": [{
+      "key": "name",
+      "label": "Name",
+      "description": "The name of the InferenceEngine service",
+      "type": "string",
+      "default": "InferenceEngine - Tensorflow Serving",
+      "required": "no"
+    }, {
+      "key": "description",
+      "label": "Description",
+      "description": "The description of the InferenceEngine service",
+      "type": "string",
+      "default": "",
+      "required": "no"
+    }, {
+      "key": "vxnet",
+      "label": "VxNet",
+      "description": "Choose a vxnet to join",
+      "type": "string",
+      "default": "",
+      "required": "yes"
+    }, {
+      "key": "tfserving",
+      "label": "tfserving",
+      "description": "Tensorflow Serving Node",
+      "type": "array",
+      "properties": [{
+        "key": "cpu_model",
+        "label": "CPU model",
+        "description": "CPU model",
+        "type": "string",
+        "default": "Broadwell",
+        "range": [
+           "",
+           "Broadwell"
+        ],
+        "required": "no"
+      },{
+        "key": "cpu",
+        "label": "CPU",
+        "description": "CPUs of each node",
+        "type": "integer",
+        "range": [
+          8,
+          16,
+          32
+        ],
+        "default": 8,
+        "required": "yes"
+      }, {
+        "description": "Memory of each node",
+        "key": "memory",
+        "label": "Memory",
+        "type": "integer",
+        "range": [
+          16384,
+          32768,
+          65536,
+          131072
+        ],
+        "default": 16384,
+        "required": "yes"
+      }, {
+        "key": "count",
+        "label": "Node Count",
+        "description": "Number of tfserving nodes to create",
+        "type": "integer",
+        "min": 1,
+        "max": 200,
+        "default": 1,
+        "required": "yes"
+      }, {
+        "key": "instance_class",
+        "label": "Instance Class",
+        "description": "The instance type for the cluster to run, such as high performance, high performance plus",
+        "type": "integer",
+        "range": [
+          0,
+          1
+        ],
+        "default": 1,
+        "required": "yes"
+      }, {
+        "key": "volume_class",
+        "label": "Volume Class",
+        "description": "The volume type for each node, such as high performance, high performance plus",
+        "type": "integer",
+        "range": [
+          0,
+          3
+        ],
+        "default": 3,
+        "required": "yes"
+      }, {
+        "key": "volume_size",
+        "label": "Volume Size",
+        "description": "The volume size for each tfserving node",
+        "type": "integer",
+        "min": 10,
+        "step": 10,
+        "default": 10,
+        "required": "yes"
+      }]
+    }, {
+      "key": "model_repo",
+      "label": "model_repo",
+      "description": "Client Node",
+      "type": "array",
+      "properties": [{
+        "key": "cpu",
+        "label": "CPU",
+        "description": "CPUs of each node",
+        "type": "integer",
+        "range": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "default": 2,
+        "required": "yes"
+      }, {
+        "key": "memory",
+        "label": "Memory",
+        "description": "Memory of each node",
+        "type": "integer",
+        "range": [
+          2048,
+          4096,
+          8192
+        ],
+        "default": 4096,
+        "required": "yes"
+      }, {
+        "key": "count",
+        "label": "Node Count",
+        "description": "Number of Client Nodes to create",
+        "type": "integer",
+        "range": [
+          0,
+          1
+        ],
+        "default": 1,
+        "required": "yes"
+      }, {
+        "key": "instance_class",
+        "label": "Instance Class",
+        "description": "The instance type for the cluster to run, such as high performance, high performance plus",
+        "type": "integer",
+        "range": [
+          0,
+          1
+        ],
+        "default": 1,
+        "required": "yes"
+      }, {
+        "key": "volume_class",
+        "label": "Volume Class",
+        "description": "The volume type for each node, such as high performance, high performance plus",
+        "type": "integer",
+        "range": [
+          0,
+          3
+        ],
+        "default": 3,
+        "required": "yes"
+      }, {
+        "key": "volume_size",
+        "label": "Volume Size",
+        "description": "The volume size for each client node",
+        "type": "integer",
+        "min": 10,
+        "step": 10,
+        "default": 10,
+        "required": "yes"
+      }]
+    }]
+  }, {
+    "key": "env",
+    "description": "application configuration properties",
+    "type": "array",
+    "properties": [{
+      "key": "global",
+      "description": "The role configuration properties of the application",
+      "type": "array",
+      "properties": [{
+        "key": "minio.access.key",
+        "label": "minio.access.key",
+        "description": "Whether to enable elasticsearch-head.",
+        "type": "password",
+        "default": "AKIAIOSXODNN7EXAMPLE",
+        "changeable": true,
+        "required": "no"
+      }, {
+        "key": "minio.secret.key",
+        "label": "minio.secret.key",
+        "description": "Whether to enable ElasticHD.",
+        "type": "password",
+        "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "changeable": true,
+        "required": "no"
+      }]
+    }, {
+      "key": "tfserving",
+      "description": "The role configuration properties of the application",
+      "type": "array",
+      "properties": [{
+        "key": "model.name",
+        "label": "model.name",
+        "description": "Periodically check if the configuration has changed and reload the pipeline. This can also be triggered manually through the SIGHUP signal",
+        "type": "string",
+        "default": "half_plus_two",
+        "changeable": true,
+        "required": "yes"
+      }, {
+        "key": "model.folder.name",
+        "label": "model.folder.name",
+        "description": "Periodically check if the configuration has changed and reload the pipeline. This can also be triggered manually through the SIGHUP signal",
+        "type": "string",
+        "default": "saved_model_half_plus_two_mkl",
+        "changeable": true,
+        "required": "yes"
+      }, {
+        "key": "http.port",
+        "label": "http.port",
+        "description": "Periodically check if the configuration has changed and reload the pipeline. This can also be triggered manually through the SIGHUP signal",
+        "type": "string",
+        "default": "8080",
+        "changeable": true,
+        "required": "yes"
+      }]
+    }]
+  }]
+}

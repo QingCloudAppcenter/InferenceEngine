@@ -1,0 +1,54 @@
+---
+- name: set up confd templates
+  include_role:
+    name: utils
+    tasks_from: setup-confd
+  vars:
+    parentRole: tensorflow_serving
+
+- name: set up docker
+  include_role:
+    name: utils
+    tasks_from: setup-docker
+
+- name: install tools
+  apt:
+    name: ['openjdk-8-jdk', 'unzip', 'python-pip', 'python3-pip', 'python-setuptools']
+    state: present
+    update_cache: no
+
+- name: install docker compose
+  include_role:
+    name: utils
+    tasks_from: install-docker-compose
+  vars:
+    dockerComposeVersion: "1.24.1"
+
+- name: install jq
+  include_role:
+    name: utils
+    tasks_from: install-jq
+  vars:
+    jqVersion: "1.6"
+
+- name: pull tensorflow serving docker image
+  docker_image:
+    name: qingcloud/tensorflow-serving:1.13-mkl
+    source: pull
+
+- name: copy configuration files
+  include_role:
+    name: utils
+    tasks_from: copy-conf
+  vars:
+    parentRole: tensorflow_serving
+
+- name: download default models 
+  include_role:
+    name: utils
+    tasks_from: download-models
+
+- name: install default models 
+  include_role:
+    name: utils
+    tasks_from: install-models
