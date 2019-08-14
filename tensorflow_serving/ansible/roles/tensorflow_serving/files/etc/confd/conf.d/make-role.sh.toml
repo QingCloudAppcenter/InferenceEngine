@@ -1,0 +1,8 @@
+[template]
+src = "make-role.sh.tmpl"
+dest = "/opt/app/bin/make-role.sh"
+mode = "0755"
+keys = [
+  "/",
+]
+reload_cmd = "/opt/app/bin/make-role.sh"
