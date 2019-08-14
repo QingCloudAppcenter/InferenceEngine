@@ -1,2 +1,2 @@
 # InferenceEngine
-Supports various runtime for model serving including Tensorflow Serving, ONNX runtime and OpenVINO.
+Supports various model serving runtime including Tensorflow Serving, ONNX runtime and OpenVINO.
