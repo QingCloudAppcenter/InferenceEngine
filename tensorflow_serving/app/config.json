@@ -186,79 +186,69 @@
     "description": "application configuration properties",
     "type": "array",
     "properties": [{
-      "key": "global",
-      "description": "The role configuration properties of the application",
-      "type": "array",
-      "properties": [{
-        "key": "s3.type",
-        "label": "s3.type",
-        "description": "Type of s3 compatible object store",
-        "type": "string",
-        "default": "none",
-        "range": ["none","minio","QingStor"],
-        "required": "no"
-      }, {
-        "key": "s3.access.key",
-        "label": "s3.access.key",
-        "description": "Access key used to access s3 compatible object store",
-        "type": "password",
-        "default": "AKIAIOSXODNN7EXAMPLE",
-        "changeable": true,
-        "required": "no"
-      }, {
-        "key": "s3.secret.key",
-        "label": "s3.secret.key",
-        "description": "Secret key used to access s3 compatible object store",
-        "type": "password",
-        "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-        "changeable": true,
-        "required": "no"
-      }, {
-        "key": "s3.region",
-        "label": "s3.region",
-        "description": "Region used to access s3 compatible object store",
-        "type": "string",
-        "default": "pek3b",
-        "range": ["pek3a","sh1a","pek3b","gd2"],
-        "required": "no"
-      }]
+      "key": "model.name",
+      "label": "model.name",
+      "description": "Model name",
+      "type": "string",
+      "default": "half_plus_two",
+      "changeable": true,
+      "required": "yes"
     }, {
-      "key": "tfserving",
-      "description": "The role configuration properties of the application",
-      "type": "array",
-      "properties": [{
-        "key": "model.name",
-        "label": "model.name",
-        "description": "Model name",
-        "type": "string",
-        "default": "half_plus_two",
-        "changeable": true,
-        "required": "yes"
-      }, {
-        "key": "model.folder.name",
-        "label": "model.folder.name",
-        "description": "Model folder name",
-        "type": "string",
-        "default": "saved_model_half_plus_two_mkl",
-        "changeable": true,
-        "required": "yes"
-      }, {
-        "key": "model.base.path",
-        "label": "model.base.path",
-        "description": "Model base path",
-        "type": "string",
-        "default": "s3://models",
-        "changeable": true,
-        "required": "yes"
-      }, {
-        "key": "http.port",
-        "label": "http.port",
-        "description": "Http port to serve the model",
-        "type": "string",
-        "default": "8080",
-        "changeable": true,
-        "required": "no"
-      }]
+      "key": "model.folder.name",
+      "label": "model.folder.name",
+      "description": "Model folder name",
+      "type": "string",
+      "default": "saved_model_half_plus_two_mkl",
+      "changeable": true,
+      "required": "yes"
+    }, {
+      "key": "model.base.path",
+      "label": "model.base.path",
+      "description": "Model base path",
+      "type": "string",
+      "default": "s3://models",
+      "changeable": true,
+      "required": "yes"
+    }, {
+      "key": "http.port",
+      "label": "http.port",
+      "description": "Http port to serve the model",
+      "type": "string",
+      "default": "8080",
+      "changeable": true,
+      "required": "yes"
+    }, {
+      "key": "s3.type",
+      "label": "s3.type",
+      "description": "Type of s3 compatible object store",
+      "type": "string",
+      "default": "none",
+      "range": ["none","minio","QingStor"],
+      "required": "yes"
+    }, {
+      "key": "s3.access.key",
+      "label": "s3.access.key",
+      "description": "Access key used to access s3 compatible object store",
+      "type": "password",
+      "default": "AKIAIOSXODNN7EXAMPLE",
+      "changeable": true,
+      "required": "no"
+    }, {
+      "key": "s3.secret.key",
+      "label": "s3.secret.key",
+      "description": "Secret key used to access s3 compatible object store",
+      "type": "password",
+      "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+      "changeable": true,
+      "required": "no"
+    }, {
+      "key": "s3.region",
+      "label": "s3.region",
+      "description": "Region used to access s3 compatible object store",
+      "type": "string",
+      "default": "pek3b",
+      "range": ["pek3a","sh1a","pek3b","gd2"],
+      "required": "no"
     }]
   }]
 }
