@@ -219,7 +219,7 @@
         "description": "Region used to access s3 compatible object store",
         "type": "string",
         "default": "pek3b",
-        "range": ["pek3a","sh1a","pek3b","gd2a"],
+        "range": ["pek3a","sh1a","pek3b","gd2"],
         "required": "no"
       }]
     }, {
