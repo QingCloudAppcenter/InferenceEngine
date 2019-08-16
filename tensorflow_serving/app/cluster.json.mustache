@@ -12,7 +12,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-u5pq5mr2"
+      "image": "img-6mjhag0h"
     },
     "instance_class": {{cluster.tfserving.instance_class}},
     "count": {{cluster.tfserving.count}},
@@ -42,6 +42,7 @@
     "env": {
       "model.name": {{env.tfserving.model.name}},
       "model.folder.name": {{env.tfserving.model.folder.name}},
+      "model.base.path": {{env.tfserving.model.base.path}},
       "model.http.port": {{env.tfserving.http.port}}
     },
     "health_check": {
@@ -59,7 +60,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-zgbub5cx"
+      "image": "img-lgzz3akj"
     },
     "instance_class": {{cluster.model_repo.instance_class}},
     "count": {{cluster.model_repo.count}},
@@ -98,8 +99,10 @@
     }
   }],
   "env": {
-    "minio.access.key": {{env.global.minio.access.key}},
-    "minio.secret.key": {{env.global.minio.secret.key}}
+    "s3.type": {{env.global.s3.type}},
+    "s3.access.key": {{env.global.s3.access.key}},
+    "s3.secret.key": {{env.global.s3.secret.key}},
+    "s3.region": {{env.global.s3.region}}
   },
   "endpoints": {
     "reserved_ips": {

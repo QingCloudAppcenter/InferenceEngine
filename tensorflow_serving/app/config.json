@@ -190,20 +190,36 @@
       "description": "The role configuration properties of the application",
       "type": "array",
       "properties": [{
-        "key": "minio.access.key",
-        "label": "minio.access.key",
-        "description": "Whether to enable elasticsearch-head.",
+        "key": "s3.type",
+        "label": "s3.type",
+        "description": "Type of s3 compatible object store",
+        "default": "none",
+			  "range": ["none","minio","QingStor"],
+        "required": "no"
+      } ,{
+        "key": "s3.access.key",
+        "label": "s3.access.key",
+        "description": "Access key used to access s3 compatible object store",
         "type": "password",
+        "pattern": "[A-Z]{20}|^$",
         "default": "AKIAIOSXODNN7EXAMPLE",
         "changeable": true,
         "required": "no"
       }, {
-        "key": "minio.secret.key",
-        "label": "minio.secret.key",
-        "description": "Whether to enable ElasticHD.",
+        "key": "s3.secret.key",
+        "label": "s3.secret.key",
+        "description": "Secret key used to access s3 compatible object store",
         "type": "password",
+        "pattern": "[A-Za-z0-9/]{40}|^$",
         "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "changeable": true,
+        "required": "no"
+      }, {
+        "key": "s3.region",
+        "label": "s3.region",
+        "description": "Region used to access s3 compatible object store",
+        "default": "pek3b",
+			  "range": ["pek3a","sh1a","pek3b","gd2a"],
         "required": "no"
       }]
     }, {
@@ -213,7 +229,7 @@
       "properties": [{
         "key": "model.name",
         "label": "model.name",
-        "description": "Periodically check if the configuration has changed and reload the pipeline. This can also be triggered manually through the SIGHUP signal",
+        "description": "Model name",
         "type": "string",
         "default": "half_plus_two",
         "changeable": true,
@@ -221,19 +237,28 @@
       }, {
         "key": "model.folder.name",
         "label": "model.folder.name",
-        "description": "Periodically check if the configuration has changed and reload the pipeline. This can also be triggered manually through the SIGHUP signal",
+        "description": "Model folder name",
         "type": "string",
         "default": "saved_model_half_plus_two_mkl",
         "changeable": true,
         "required": "yes"
       }, {
-        "key": "http.port",
-        "label": "http.port",
-        "description": "Periodically check if the configuration has changed and reload the pipeline. This can also be triggered manually through the SIGHUP signal",
+        "key": "model.base.path",
+        "label": "model.base.path",
+        "description": "Model base path",
         "type": "string",
-        "default": "8080",
+        "default": "s3://models",
         "changeable": true,
         "required": "yes"
+      }, {
+        "key": "http.port",
+        "label": "http.port",
+        "description": "Http port to serve the model",
+        "type": "string",
+        "pattern": "^(?!8501)$",
+        "default": "8080",
+        "changeable": true,
+        "required": "no"
       }]
     }]
   }]
