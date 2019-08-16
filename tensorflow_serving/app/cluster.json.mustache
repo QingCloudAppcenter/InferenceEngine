@@ -12,7 +12,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-6mjhag0h"
+      "image": "img-lea6kb2i"
     },
     "instance_class": {{cluster.tfserving.instance_class}},
     "count": {{cluster.tfserving.count}},
@@ -39,12 +39,6 @@
         "cmd": "appctl restart"
       }
     },
-    "env": {
-      "model.name": {{env.tfserving.model.name}},
-      "model.folder.name": {{env.tfserving.model.folder.name}},
-      "model.base.path": {{env.tfserving.model.base.path}},
-      "model.http.port": {{env.tfserving.http.port}}
-    },
     "health_check": {
       "enable": true,
       "interval_sec": 60,
@@ -60,7 +54,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-lgzz3akj"
+      "image": "img-isr9n83b"
     },
     "instance_class": {{cluster.model_repo.instance_class}},
     "count": {{cluster.model_repo.count}},
@@ -98,11 +92,15 @@
       "action_cmd": "appctl revive"
     }
   }],
-  "env": {
+ "env": {
     "s3.type": {{env.global.s3.type}},
     "s3.access.key": {{env.global.s3.access.key}},
     "s3.secret.key": {{env.global.s3.secret.key}},
     "s3.region": {{env.global.s3.region}}
+    "model.name": {{env.tfserving.model.name}},
+    "model.folder.name": {{env.tfserving.model.folder.name}},
+    "model.base.path": {{env.tfserving.model.base.path}},
+    "model.http.port": {{env.tfserving.http.port}}
   },
   "endpoints": {
     "reserved_ips": {
