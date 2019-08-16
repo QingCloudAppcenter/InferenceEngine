@@ -193,15 +193,15 @@
         "key": "s3.type",
         "label": "s3.type",
         "description": "Type of s3 compatible object store",
+        "type": "string",
         "default": "none",
-			  "range": ["none","minio","QingStor"],
+        "range": ["none","minio","QingStor"],
         "required": "no"
-      } ,{
+      }, {
         "key": "s3.access.key",
         "label": "s3.access.key",
         "description": "Access key used to access s3 compatible object store",
         "type": "password",
-        "pattern": "[A-Z]{20}|^$",
         "default": "AKIAIOSXODNN7EXAMPLE",
         "changeable": true,
         "required": "no"
@@ -210,7 +210,6 @@
         "label": "s3.secret.key",
         "description": "Secret key used to access s3 compatible object store",
         "type": "password",
-        "pattern": "[A-Za-z0-9/]{40}|^$",
         "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "changeable": true,
         "required": "no"
@@ -218,8 +217,9 @@
         "key": "s3.region",
         "label": "s3.region",
         "description": "Region used to access s3 compatible object store",
+        "type": "string",
         "default": "pek3b",
-			  "range": ["pek3a","sh1a","pek3b","gd2a"],
+        "range": ["pek3a","sh1a","pek3b","gd2a"],
         "required": "no"
       }]
     }, {
@@ -255,7 +255,6 @@
         "label": "http.port",
         "description": "Http port to serve the model",
         "type": "string",
-        "pattern": "^(?!8501)$",
         "default": "8080",
         "changeable": true,
         "required": "no"
