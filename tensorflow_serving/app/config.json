@@ -190,7 +190,7 @@
       "label": "model.name",
       "description": "Model name",
       "type": "string",
-      "default": "half_plus_two",
+      "default": "saved_model_half_plus_two_mkl",
       "changeable": true,
       "required": "yes"
     }, {
