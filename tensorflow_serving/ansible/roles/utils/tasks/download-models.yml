@@ -21,7 +21,7 @@
 
 - name: rename resnet models
   shell: |
-    if [ ！ -d "{{ playbook_dir }}/files/tmp/models/resnet" ] 
+    if [ ! -d "{{ playbook_dir }}/files/tmp/models/resnet" ] 
     then 
       mv "{{ playbook_dir }}/files/tmp/models/resnet_v1_fp32_savedmodel_NCHW_jpg" "{{ playbook_dir }}/files/tmp/models/resnet" 
     fi
