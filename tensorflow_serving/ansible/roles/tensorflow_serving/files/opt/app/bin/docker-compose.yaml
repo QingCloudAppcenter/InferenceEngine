@@ -6,7 +6,7 @@ services:
      image: qingcloud/tensorflow-serving:1.13-mkl
      network_mode: host
      volumes:
-       - /data/models/${MODEL_FOLDER}:/models/${MODEL_NAME} 
+       - /data/models/${MODEL_NAME}:/models/${MODEL_NAME} 
      logging:
        driver: syslog
        options:

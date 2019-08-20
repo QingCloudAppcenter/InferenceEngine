@@ -194,14 +194,6 @@
       "changeable": true,
       "required": "yes"
     }, {
-      "key": "model.folder.name",
-      "label": "model.folder.name",
-      "description": "Model folder name",
-      "type": "string",
-      "default": "saved_model_half_plus_two_mkl",
-      "changeable": true,
-      "required": "yes"
-    }, {
       "key": "model.base.path",
       "label": "model.base.path",
       "description": "Model base path",
