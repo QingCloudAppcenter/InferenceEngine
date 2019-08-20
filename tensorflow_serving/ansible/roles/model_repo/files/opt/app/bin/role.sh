@@ -3,7 +3,7 @@ port="9000"
 DOCKER_HOME=/usr/local/bin
 
 prepareDir() {
-  mkdir -p /data/minio/{logs,data} && chgrp -R syslog /data/minio/logs && chmod -R 775 /data && mkdir -p /data/models_to_load && mv /opt/models /data/minio/data/
+  mkdir -p /data/minio/{logs,data} && chgrp -R syslog /data/minio/logs && chmod -R 775 /data && mkdir -p /data/models_to_load && cp -rf /opt/models /data/minio/data/
 }
 
 init() {
