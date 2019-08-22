@@ -18,7 +18,7 @@ start () {
 }
 
 stop () {
-  cd /opt/app/bin && $DOCKER_HOME/docker-compose down
+  cd /opt/app/bin && $DOCKER_HOME/docker-compose down && _stop()
 }
 
 restart() {
