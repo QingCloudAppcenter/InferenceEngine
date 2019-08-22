@@ -14,8 +14,8 @@
     when: "'tensorflow_serving' in group_names"
     loop:
     - caddy
-    - tensorflow_serving
     - envoy
+    - tensorflow_serving
     loop_control:
       loop_var: svc_name
 
@@ -28,7 +28,7 @@
     when: "'model_repo' in group_names"
     loop:
     - caddy
-    - model_repo
     - envoy
+    - model_repo
     loop_control:
       loop_var: svc_name
