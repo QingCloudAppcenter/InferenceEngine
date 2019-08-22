@@ -8,8 +8,8 @@ ConditionFileNotEmpty=/opt/app/conf/caddy/Caddyfile
 [Service]
 Restart=on-abnormal
 
-User=elasticsearch
-Group=elasticsearch
+User=caddy
+Group=svc
 
 ; Always set "-root" to something safe in case it gets forgotten in the Caddyfile.
 ExecStart=/opt/caddy/current/caddy -agree=true -conf=/opt/app/conf/caddy/Caddyfile
