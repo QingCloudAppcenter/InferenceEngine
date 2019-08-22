@@ -3,18 +3,18 @@ port="8080"
 DOCKER_HOME=/usr/local/bin
 
 prepareDir() {
-  mkdir -p /data/logs && chgrp -R syslog /data/logs && chmod 775 /data/logs && cp -rf /opt/models /data/
+  mkdir -p /data/logs && chgrp -R syslog /data/logs && chmod 775 /data/logs && mkdir -p /data/models_to_load && chmod -R +rx /opt/models && cp -rf /opt/models /data/
 }
 
 init() {
   _init
   prepareDir
-#  local htmlPath=/data/elasticsearch/index.html
-#  [ -e $htmlPath ] || ln -s /opt/app/conf/caddy/index.html $htmlPath
+  local htmlPath=/data/index.html
+  [ -e $htmlPath ] || ln -s /opt/app/conf/caddy/index.html $htmlPath
 }
 
 start () {
-  cd /opt/app/bin && $DOCKER_HOME/docker-compose up -d
+  _start && cd /opt/app/bin && $DOCKER_HOME/docker-compose up -d && chmod -R +rx /data/logs
 }
 
 stop () {

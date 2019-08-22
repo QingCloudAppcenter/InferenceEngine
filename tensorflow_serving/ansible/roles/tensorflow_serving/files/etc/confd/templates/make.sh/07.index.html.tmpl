@@ -79,8 +79,9 @@ cat > /opt/app/conf/caddy/index.html << ES_HTML_EOF
         {{- range $tfserving }}
         {{- if eq . $myIp }}
         <li><span>⊟</span>{{ . }}</li>
-        <li><span class="sub-1">⊞</span><a href="./models/">models</a></li>
-        <li><span class="sub-1">⊞</span><a href="./logs/">logs</a></li>
+        <li><span class="sub-1">⊞</span><a href="models/">models</a></li>
+        <li><span class="sub-1">⊞</span><a href="logs/">logs</a></li>
+        <li><span class="sub-1">⊞</span><a href="models_to_load/">models_to_load</a></li>
         {{- else }}
         <li><span>⊞</span><a href="//{{ . }}/">{{ . }}</a></li>
         {{- end }}

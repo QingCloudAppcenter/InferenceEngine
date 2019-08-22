@@ -1,9 +1,11 @@
 cat > /opt/app/conf/caddy/Caddyfile << CADDYFILE_EOF
-{{ $myIp }}:80 {
+{{ $myIp }}:8090 {
   root /data/
   gzip
+  browse /minio
   browse /minio/logs
-  browse /minio/data
+  browse /minio/data/models
+  browse /models_to_load
   tls off
 
   upload / {
