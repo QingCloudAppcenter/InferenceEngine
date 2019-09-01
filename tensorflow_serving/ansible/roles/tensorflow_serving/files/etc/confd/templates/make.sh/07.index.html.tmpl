@@ -83,7 +83,7 @@ cat > /opt/app/conf/caddy/index.html << ES_HTML_EOF
         <li><span class="sub-1">⊞</span><a href="logs/">logs</a></li>
         <li><span class="sub-1">⊞</span><a href="models_to_load/">models_to_load</a></li>
         {{- else }}
-        <li><span>⊞</span><a href="//{{ . }}/">{{ . }}</a></li>
+        <li><span>⊞</span><a href="//{{ . }}:8090/">{{ . }}</a></li>
         {{- end }}
         {{- end }}
       </ul>
