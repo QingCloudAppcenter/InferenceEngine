@@ -3,7 +3,7 @@ port="8080"
 DOCKER_HOME=/usr/local/bin
 
 prepareDir() {
-  mkdir -p /data/logs && chgrp -R syslog /data/logs && chmod -R 775 /data/logs && mkdir -p /data/models_to_load && chmod -R 777 /data/models_to_load  && chmod -R +rx /opt/models && cp -rf /opt/models /data/
+  mkdir -p /data/logs && chown -R syslog.adm /data/logs && chmod -R 775 /data/logs && mkdir -p /data/models_to_load && chmod -R 777 /data/models_to_load  && chmod -R +rx /opt/models && cp -rf /opt/models /data/
 }
 
 init() {
