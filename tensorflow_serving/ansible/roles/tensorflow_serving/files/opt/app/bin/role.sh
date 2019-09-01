@@ -14,7 +14,7 @@ init() {
 }
 
 start () {
-  _start && cd /opt/app/bin && $DOCKER_HOME/docker-compose up -d
+  _start && systemctl restart rsyslog && cd /opt/app/bin && $DOCKER_HOME/docker-compose up -d
 }
 
 stop () {
