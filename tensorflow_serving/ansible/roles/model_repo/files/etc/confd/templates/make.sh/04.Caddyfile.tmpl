@@ -8,7 +8,7 @@ cat > /opt/app/conf/caddy/Caddyfile << CADDYFILE_EOF
   browse /models_to_load
   tls off
 
-  upload / {
+  upload /upload {
     yes_without_tls
     to "/data/models_to_load"
   }
