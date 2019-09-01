@@ -12,7 +12,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-9kih28ak"
+      "image": "img-o1c5s55p"
     },
     "instance_class": {{cluster.tfserving.instance_class}},
     "count": {{cluster.tfserving.count}},
@@ -37,6 +37,12 @@
       },
       "restart": {
         "cmd": "appctl restart"
+      },
+      "scale_out": {
+        "cmd": "appctl scale_out"
+      },
+      "scale_in": {
+        "cmd": "appctl scale_in"
       }
     },
     "health_check": {
@@ -54,7 +60,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-q2x63139"
+      "image": "img-bhe0cnrm"
     },
     "instance_class": {{cluster.model_repo.instance_class}},
     "count": {{cluster.model_repo.count}},
@@ -78,6 +84,12 @@
       },
       "restart": {
         "cmd": "appctl restart"
+      },
+      "scale_out": {
+        "cmd": "appctl scale_out"
+      },
+      "scale_in": {
+        "cmd": "appctl scale_in"
       }
     },
     "user_access": true,

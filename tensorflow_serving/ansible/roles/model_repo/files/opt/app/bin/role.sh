@@ -33,6 +33,18 @@ revive() {
   restart
 }
 
+_restart_envoy() {
+  docker stop envoy && cd /opt/app/bin && $DOCKER_HOME/docker-compose up -d
+}
+
+scale_in() {
+  _restart_envoy 
+}
+
+scale_out() {
+  _restart_envoy 
+}
+
 update() {
   return 0
 }
