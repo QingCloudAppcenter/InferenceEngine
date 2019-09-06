@@ -1,0 +1,8 @@
+[template]
+src = "make-test-scripts.tmpl"
+dest = "/opt/app/bin/make-test-scripts.sh"
+mode = "0755"
+keys = [
+  "/",
+]
+reload_cmd = "/opt/app/bin/make-test-scripts.sh"
