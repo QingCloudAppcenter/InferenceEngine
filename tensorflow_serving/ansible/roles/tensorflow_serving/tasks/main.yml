@@ -33,7 +33,7 @@
 
 - name: pull tensorflow serving docker image
   docker_image:
-    name: qingcloud/tensorflow-serving:1.13-mkl
+    name: qingcloud/tensorflow-serving:{{ tf_serving_version }}-mkl
     source: pull
 
 - name: copy configuration files

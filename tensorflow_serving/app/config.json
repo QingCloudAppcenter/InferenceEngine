@@ -210,6 +210,14 @@
       "changeable": true,
       "required": "yes"
     }, {
+      "key": "grpc.port",
+      "label": "grpc.port",
+      "description": "GRPC port to serve the model",
+      "type": "string",
+      "default": "8081",
+      "changeable": true,
+      "required": "yes"
+    }, {
       "key": "s3.type",
       "label": "s3.type",
       "description": "Type of s3 compatible object store",

@@ -13,7 +13,7 @@
     cd /opt/app/test
     virtualenv tfserving_test
     source tfserving_test/bin/activate
-    pip install requests tensorflow==1.14 tensorflow-serving-api==1.14
+    pip install requests tensorflow=={{ tf_serving_version }} tensorflow-serving-api=={{ tf_serving_version }}
     deactivate
     exit 0
   args:

@@ -3,7 +3,7 @@
   git:
     repo: 'https://github.com/tensorflow/serving.git'
     dest: "{{ playbook_dir }}/files/tmp/models"
-    version: 1.14.0
+    version: "{{ tf_serving_tag }}"
   delegate_to: localhost
 
 - name: Download resnet models
