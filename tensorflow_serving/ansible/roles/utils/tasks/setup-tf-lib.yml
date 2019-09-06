@@ -1,0 +1,28 @@
+---
+- name: install virtualenv 
+  pip:
+    name: virtualenv
+  delegate_to: localhost
+
+- name: rename resnet models
+  shell: |
+    cd {{ playbook_dir }}/files/tmp/
+    virtualenv tfserving_test
+    source tfserving_test/bin/activate
+    pip install requests tensorflow==1.14 tensorflow-serving-api==1.14
+    deactivate
+  delegate_to: localhost
+
+- name: copy sample models
+  copy:
+    src: "{{ path }}"
+    dest: /opt/app/test
+    owner: root
+    group: root
+    mode: preserve
+    directory_mode: u=rwx,g=rx,o=
+  when: path is directory
+  loop:
+    - "{{ playbook_dir }}/files/tmp/tfserving_test"
+  loop_control:
+    loop_var: path
