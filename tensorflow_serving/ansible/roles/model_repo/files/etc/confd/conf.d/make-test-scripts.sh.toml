@@ -1,5 +1,5 @@
 [template]
-src = "make-test-scripts.tmpl"
+src = "make-test-scripts.sh.tmpl"
 dest = "/opt/app/bin/make-test-scripts.sh"
 mode = "0755"
 keys = [
