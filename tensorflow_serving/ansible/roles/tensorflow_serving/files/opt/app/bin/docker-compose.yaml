@@ -3,7 +3,7 @@ services:
 
    tensorflow_serving:
      container_name: tensorflow_serving
-     image: qingcloud/tensorflow-serving:{{ tf_serving_version }}-mkl
+     image: qingcloud/tensorflow-serving:${TF_SERVING_VERSION}-mkl
      network_mode: host
      volumes:
        - /data/models/${MODEL_NAME}:/models/${MODEL_NAME} 
