@@ -11,8 +11,8 @@
 - name: install tf python lib
   shell: |
     cd /opt/app/test
-    virtualenv tfserving_test
-    source tfserving_test/bin/activate
+    virtualenv tfserving_venv
+    source tfserving_venv/bin/activate
     pip install requests tensorflow=={{ tf_serving_version }} tensorflow-serving-api=={{ tf_serving_version }}
     deactivate
     exit 0
