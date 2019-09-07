@@ -52,3 +52,8 @@
   include_role:
     name: utils
     tasks_from: install-models
+
+- name: install tf python lib 
+  include_role:
+    name: utils
+    tasks_from: setup-tf-lib

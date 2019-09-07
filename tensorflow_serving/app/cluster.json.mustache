@@ -12,7 +12,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-d0m9y5my"
+      "image": "img-985qh39k"
     },
     "instance_class": {{cluster.tfserving.instance_class}},
     "count": {{cluster.tfserving.count}},
@@ -30,7 +30,7 @@
         "cmd": "appctl init"
       },
       "start": {
-        "cmd": "appctl start"
+        "cmd": "appctl restart"
       },
       "stop": {
         "cmd": "appctl stop"
@@ -60,7 +60,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-ntm3282j"
+      "image": "img-a75twxoy"
     },
     "instance_class": {{cluster.model_repo.instance_class}},
     "count": {{cluster.model_repo.count}},
@@ -77,7 +77,7 @@
         "cmd": "appctl init"
       },
       "start": {
-        "cmd": "appctl start"
+        "cmd": "appctl restart"
       },
       "stop": {
         "cmd": "appctl stop"
