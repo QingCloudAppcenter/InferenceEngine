@@ -31,17 +31,6 @@
       "description": "Tensorflow Serving Node",
       "type": "array",
       "properties": [{
-        "key": "cpu_model",
-        "label": "CPU model",
-        "description": "CPU model",
-        "type": "string",
-        "default": "Broadwell",
-        "range": [
-           "",
-           "Broadwell"
-        ],
-        "required": "no"
-      },{
         "key": "cpu",
         "label": "CPU",
         "description": "CPUs of each node",

@@ -12,11 +12,11 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-985qh39k"
+      "image": "img-8xwlosnn"
     },
     "instance_class": {{cluster.tfserving.instance_class}},
     "count": {{cluster.tfserving.count}},
-    "cpu_model": {{cluster.tfserving.cpu_model}},
+    "cpu_model": "Broadwell",
     "cpu": {{cluster.tfserving.cpu}},
     "memory": {{cluster.tfserving.memory}},
     "volume": {
@@ -60,10 +60,11 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-a75twxoy"
+      "image": "img-y0gnm8bc"
     },
     "instance_class": {{cluster.model_repo.instance_class}},
     "count": {{cluster.model_repo.count}},
+    "cpu_model": "Broadwell",
     "cpu": {{cluster.model_repo.cpu}},
     "memory": {{cluster.model_repo.memory}},
     "volume": {
