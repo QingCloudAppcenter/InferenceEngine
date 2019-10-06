@@ -23,5 +23,17 @@
   "Volume Class": "存储类型",
   "The volume type for each node, such as high performance, high performance plus": "每个节点的数据盘类型，性能型或超高性能型最大支持 2T 容量",
   "The instance type for the cluster to run, such as high performance, high performance plus": "节点主机的类型",
-  "instance class": "实例类型"
+  "instance class": "实例类型",
+  "tfserving": "模型服务",
+  "model_repo": "模型库",
+  "Model name": "模型名称",
+  "Model base path": "模型库根目录",
+  "Http port to serve the model": "模型服务的 Http 端口",
+  "GRPC port to serve the model": "模型服务的 GRPC 端口",
+  "Type of s3 compatible object store": "对象存储类型（兼容 S3）",
+  "Access key used to access s3 compatible object store": "访问对象存储（兼容 S3）的 Access Key",
+  "Secret key used to access s3 compatible object store": "访问对象存储（兼容 S3）的 Secret key",
+  "Region used to access s3 compatible object store": "对象存储（兼容 S3）所在区",
+  "Number of model repo Nodes to create": "模型库节点数量",
+  "The volume size for model repo node, used to store models in Minio": "模型库节点挂盘大小，用于在 Minio 中存储模型"
 }

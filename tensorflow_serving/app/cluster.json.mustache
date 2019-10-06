@@ -2,7 +2,6 @@
   "name": {{cluster.name}},
   "description": {{cluster.description}},
   "vxnet": {{cluster.vxnet}},
-  "multi_zone_policy": "round_robin",
   "advanced_actions": [
     "scale_horizontal",
     "change_vxnet"
@@ -45,6 +44,7 @@
         "cmd": "appctl scale_in"
       }
     },
+    "user_access": true,
     "health_check": {
       "enable": true,
       "interval_sec": 60,
