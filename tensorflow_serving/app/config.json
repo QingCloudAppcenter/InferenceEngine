@@ -37,6 +37,7 @@
         "type": "integer",
         "range": [
           8,
+          12,
           16,
           32
         ],
@@ -49,7 +50,9 @@
         "type": "integer",
         "range": [
           16384,
+          24576,
           32768,
+          49152,
           65536,
           131072
         ],
@@ -70,29 +73,9 @@
         "description": "The instance type for the cluster to run, such as high performance, high performance plus",
         "type": "integer",
         "range": [
-          201,
           202
         ],
-        "default": 201,
-        "required": "yes"
-      }, {
-        "key": "volume_class",
-        "label": "Volume Class",
-        "description": "The volume type for each node, such as high performance, high performance plus",
-        "type": "integer",
-        "range": [
-          200
-        ],
-        "default": 200,
-        "required": "yes"
-      }, {
-        "key": "volume_size",
-        "label": "Volume Size",
-        "description": "The volume size for each tfserving node",
-        "type": "integer",
-        "min": 10,
-        "step": 10,
-        "default": 10,
+        "default": 202,
         "required": "yes"
       }]
     }, {
@@ -121,7 +104,8 @@
         "range": [
           2048,
           4096,
-          8192
+          8192,
+          16384
         ],
         "default": 4096,
         "required": "yes"
@@ -142,10 +126,9 @@
         "description": "The instance type for the cluster to run, such as high performance, high performance plus",
         "type": "integer",
         "range": [
-          0,
-          1
+          101
         ],
-        "default": 1,
+        "default": 101,
         "required": "yes"
       }, {
         "key": "volume_class",
@@ -153,10 +136,9 @@
         "description": "The volume type for each node, such as high performance, high performance plus",
         "type": "integer",
         "range": [
-          0,
-          3 
+          100
         ],
-        "default": 3,
+        "default": 100,
         "required": "yes"
       }, {
         "key": "volume_size",

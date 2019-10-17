@@ -18,11 +18,6 @@
     "cpu_model": "CascadeLake",
     "cpu": {{cluster.tfserving.cpu}},
     "memory": {{cluster.tfserving.memory}},
-    "volume": {
-      "size": {{cluster.tfserving.volume_size}},
-      "mount_point": ["/data"],
-      "class": {{cluster.tfserving.volume_class}}
-    },
     "vertical_scaling_policy": "sequential",
     "services": {
       "init": {
