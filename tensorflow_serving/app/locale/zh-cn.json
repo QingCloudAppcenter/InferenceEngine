@@ -35,5 +35,6 @@
   "Secret key used to access s3 compatible object store": "访问对象存储（兼容 S3）的 Secret key (默认值用于 Minio , 可修改为公有云对象存储相应值)",
   "Region used to access s3 compatible object store": "对象存储（兼容 S3）所在区, 仅适用于用 QingStor",
   "Number of model repo Nodes to create": "模型库节点数量",
-  "The volume size for model repo node, used to store models in Minio": "模型库节点挂盘大小，用于在 Minio 中存储模型"
+  "The volume size for model repo node, used to store models in Minio": "模型库节点挂盘大小，用于在 Minio 中存储模型",
+  "Enable inference HTTP/GRPC API access log" : "打开推理 HTTP/GRPC API 访问日志"
 }
