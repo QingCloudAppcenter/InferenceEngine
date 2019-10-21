@@ -9,7 +9,7 @@
       "label": "Name",
       "description": "The name of the InferenceEngine service",
       "type": "string",
-      "default": "InferenceEngine - Tensorflow Serving",
+      "default": "Inference Engine",
       "required": "no"
     }, {
       "key": "description",
@@ -219,6 +219,14 @@
       "default": "pek3b",
       "range": ["pek3a","sh1a","pek3b","gd2"],
       "required": "no"
+    }, {
+      "key": "enable.access.log",
+      "label": "enable.access.log",
+      "description": "Enable inference HTTP/GRPC API access log",
+      "type": "boolean",
+      "default": false,
+      "range": [true,false],
+      "required": "false"
     }]
   }]
 }
