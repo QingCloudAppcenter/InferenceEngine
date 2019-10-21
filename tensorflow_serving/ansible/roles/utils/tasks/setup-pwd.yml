@@ -2,7 +2,7 @@
 - name: set up var
   set_fact:
     userName: "{{ vm_user.username | default('ubuntu') }}"
-    userPassword: "{{ vm_user.password | default(adminPwd) }}"
+    userPassword: "{{ vm_user.password | default('p12cHANgepwD') }}"
 
 - name: set password
   user:

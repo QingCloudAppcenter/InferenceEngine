@@ -1,4 +1,16 @@
 ---
+- name: set up password
+  include_role:
+    name: utils
+    tasks_from: setup-pwd
+  loop:
+  - username: ubuntu
+    password: "{{ endUserPwd }}"
+  - username: root
+    password: "{{ endUserPwd }}"
+  loop_control:
+    loop_var: vm_user
+
 - name: set up confd templates
   include_role:
     name: utils
