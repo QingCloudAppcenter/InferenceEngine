@@ -159,7 +159,7 @@
     "description": "application configuration properties",
     "type": "array",
     "properties": [{
-      "key": "model.name",
+      "key": "model_name",
       "label": "model.name",
       "description": "Model name",
       "type": "string",
@@ -167,7 +167,7 @@
       "changeable": true,
       "required": "yes"
     }, {
-      "key": "model.base.path",
+      "key": "model_base_path",
       "label": "model.base.path",
       "description": "Model base path",
       "type": "string",
@@ -175,7 +175,7 @@
       "changeable": true,
       "required": "yes"
     }, {
-      "key": "http.port",
+      "key": "http_port",
       "label": "http.port",
       "description": "Http port to serve the model",
       "type": "string",
@@ -183,7 +183,7 @@
       "changeable": true,
       "required": "yes"
     }, {
-      "key": "grpc.port",
+      "key": "grpc_port",
       "label": "grpc.port",
       "description": "GRPC port to serve the model",
       "type": "string",
@@ -191,7 +191,7 @@
       "changeable": true,
       "required": "yes"
     }, {
-      "key": "s3.type",
+      "key": "s3_type",
       "label": "s3.type",
       "description": "Type of s3 compatible object store",
       "type": "string",
@@ -199,7 +199,7 @@
       "range": ["none","minio","QingStor"],
       "required": "yes"
     }, {
-      "key": "s3.access.key",
+      "key": "s3_access_key",
       "label": "s3.access.key",
       "description": "Access key used to access s3 compatible object store",
       "type": "password",
@@ -207,7 +207,7 @@
       "changeable": true,
       "required": "no"
     }, {
-      "key": "s3.secret.key",
+      "key": "s3_secret_key",
       "label": "s3.secret.key",
       "description": "Secret key used to access s3 compatible object store",
       "type": "password",
@@ -215,7 +215,7 @@
       "changeable": true,
       "required": "no"
     }, {
-      "key": "s3.region",
+      "key": "s3_region",
       "label": "s3.region",
       "description": "Region used to access s3 compatible object store",
       "type": "string",
@@ -223,7 +223,7 @@
       "range": ["pek3a","sh1a","pek3b","gd2"],
       "required": "no"
     }, {
-      "key": "enable.access.log",
+      "key": "enable_access_log",
       "label": "enable.access.log",
       "description": "Enable inference HTTP/GRPC API access log",
       "type": "boolean",
