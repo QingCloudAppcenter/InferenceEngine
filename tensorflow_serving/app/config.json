@@ -173,6 +173,9 @@
       "type": "string",
       "default": "s3://models",
       "changeable": true,
+      "dependencies":[
+        {"refkey":"s3_type","values":["minio","QingStor"],"operator":"in"}
+      ],
       "required": "yes"
     }, {
       "key": "http_port",
@@ -199,13 +202,25 @@
       "range": ["none","minio","QingStor"],
       "required": "yes"
     }, {
+      "key": "access_key",
+      "label": "access.key",
+      "description": "Access key used to access s3 compatible object store",
+      "type": "accesskey",
+      "dependencies":[
+        {"refkey":"s3_type","values":["QingStor"],"operator":"in"}
+      ],
+      "required": "yes"
+    }, {
       "key": "s3_access_key",
       "label": "s3.access.key",
       "description": "Access key used to access s3 compatible object store",
       "type": "password",
       "default": "AKIAIOSXODNN7EXAMPLE",
       "changeable": true,
-      "required": "no"
+      "dependencies":[
+        {"refkey":"s3_type","values":["minio"],"operator":"in"}
+      ],
+      "required": "yes"
     }, {
       "key": "s3_secret_key",
       "label": "s3.secret.key",
@@ -213,7 +228,10 @@
       "type": "password",
       "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
       "changeable": true,
-      "required": "no"
+      "dependencies":[
+        {"refkey":"s3_type","values":["minio"],"operator":"in"}
+      ],
+      "required": "yes"
     }, {
       "key": "s3_region",
       "label": "s3.region",
@@ -221,7 +239,10 @@
       "type": "string",
       "default": "pek3b",
       "range": ["pek3a","sh1a","pek3b","gd2"],
-      "required": "no"
+      "dependencies":[
+        {"refkey":"s3_type","values":["QingStor"],"operator":"in"}
+      ],
+      "required": "yes"
     }, {
       "key": "enable_access_log",
       "label": "enable.access.log",

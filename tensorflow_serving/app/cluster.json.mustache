@@ -11,7 +11,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-o059zdv8"
+      "image": "img-g9ihpbzb"
     },
     "instance_class": {{cluster.tfserving.instance_class}},
     "count": {{cluster.tfserving.count}},
@@ -55,7 +55,7 @@
     "container": {
       "type": "kvm",
       "zone": "pek3",
-      "image": "img-06cxk9ri"
+      "image": "img-no28yck2"
     },
     "instance_class": {{cluster.model_repo.instance_class}},
     "count": {{cluster.model_repo.count}},
@@ -102,6 +102,7 @@
   }],
  "env": {
     "s3_type": {{env.s3_type}},
+    "access_key": {{env.access_key}},
     "s3_access_key": {{env.s3_access_key}},
     "s3_secret_key": {{env.s3_secret_key}},
     "s3_region": {{env.s3_region}},
