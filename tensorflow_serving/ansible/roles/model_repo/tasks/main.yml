@@ -45,7 +45,7 @@
 
 - name: pull minio docker image
   docker_image:
-    name: minio/minio
+    name: minio/minio:RELEASE.2019-10-12T01-39-57Z
     source: pull
 
 - name: copy configuration files

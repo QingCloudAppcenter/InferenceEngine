@@ -3,7 +3,7 @@ services:
 
    minio_model_repo:
      container_name: minio_model_repo
-     image: minio/minio
+     image: minio/minio:${MINIO_VERSION}
      command: server /data
      network_mode: host
      volumes:
