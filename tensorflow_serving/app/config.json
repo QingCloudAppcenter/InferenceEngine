@@ -75,6 +75,7 @@
         "range": [
           202
         ],
+        "changeable_when_create": false,
         "default": 202,
         "required": "yes"
       }]
@@ -128,6 +129,7 @@
         "range": [
           101
         ],
+        "changeable_when_create": false,
         "default": 101,
         "required": "yes"
       }, {
@@ -138,6 +140,7 @@
         "range": [
           100
         ],
+        "changeable_when_create": false,
         "default": 100,
         "required": "yes"
       }, {
