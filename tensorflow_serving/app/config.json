@@ -204,7 +204,7 @@
     }, {
       "key": "access_key",
       "label": "access.key",
-      "description": "Access key used to access s3 compatible object store",
+      "description": "Access key used to access QingStor object store",
       "type": "accesskey",
       "dependencies":[
         {"refkey":"s3_type","values":["QingStor"],"operator":"in"}
@@ -213,9 +213,10 @@
     }, {
       "key": "s3_access_key",
       "label": "s3.access.key",
-      "description": "Access key used to access s3 compatible object store",
+      "description": "Access key used to access MinIO object store",
       "type": "password",
       "default": "AKIAIOSXODNN7EXAMPLE",
+      "pattern": "^.{20}$",
       "changeable": true,
       "dependencies":[
         {"refkey":"s3_type","values":["minio"],"operator":"in"}
@@ -224,9 +225,10 @@
     }, {
       "key": "s3_secret_key",
       "label": "s3.secret.key",
-      "description": "Secret key used to access s3 compatible object store",
+      "description": "Secret key used to access MinIO object store",
       "type": "password",
       "default": "wJalrXUtqFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+      "pattern": "^.{40}$",
       "changeable": true,
       "dependencies":[
         {"refkey":"s3_type","values":["minio"],"operator":"in"}
@@ -235,7 +237,7 @@
     }, {
       "key": "s3_region",
       "label": "s3.region",
-      "description": "Region used to access s3 compatible object store",
+      "description": "Region used to access QingStor object store",
       "type": "string",
       "default": "pek3b",
       "range": ["pek3a","sh1a","pek3b","gd2"],
