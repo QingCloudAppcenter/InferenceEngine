@@ -25,7 +25,7 @@
 
 - name: install tools
   apt:
-    name: ['openjdk-8-jdk', 'unzip', 'python-pip', 'python3-pip', 'python-setuptools']
+    name: ['openjdk-8-jdk', 'unzip', 'python-pip', 'python3-pip', 'python-setuptools', 'python-dateutil', 's3cmd']
     state: present
     update_cache: no
 
