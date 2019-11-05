@@ -14,6 +14,7 @@ init() {
 }
 
 start () {
+  ip link delete docker0 &>/dev/null 
   _start && systemctl restart rsyslog && cd /opt/app/bin && $DOCKER_HOME/docker-compose up -d
 }
 
