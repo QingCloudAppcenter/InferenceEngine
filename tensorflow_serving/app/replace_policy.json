@@ -1,0 +1,52 @@
+{
+    "pek3a": {
+        "instance_class": [{
+            "src": "101",
+            "dst": 0
+        }, {
+            "src": "201,202,301",
+            "dst": 1
+        }],
+        "volume_class": [{
+            "src": "100",
+            "dst": 0
+        }, {
+            "src": "200",
+            "dst": 3
+        }],
+        "cpu_model": [{
+            "src": "CascadeLake",
+            "dst": "Broadwell"
+        }]
+    },
+    "ap2a": {
+        "instance_class": [{
+            "src": "202",
+            "dst": 201
+        }],
+        "cpu_model": [{
+            "src": "CascadeLake",
+            "dst": "Broadwell"
+        }]
+    },
+    "gd2a": {
+        "instance_class": [{
+            "src": "202",
+            "dst": 201
+        }],
+        "cpu_model": [{
+            "src": "CascadeLake",
+            "dst": "Broadwell"
+        }]
+    },
+    "gd2b": {
+        "instance_class": [{
+            "src": "202",
+            "dst": 201
+        }],
+        "cpu_model": [{
+            "src": "CascadeLake",
+            "dst": "Broadwell"
+        }]
+    }
+}
