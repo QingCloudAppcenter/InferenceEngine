@@ -71,4 +71,4 @@
     name: docker
 
 - name: Remove docker network dridge
-  shell: ip link delete docker0 &>/dev/null; echo ""
+  shell: ip link delete docker0 &>/dev/null || true
